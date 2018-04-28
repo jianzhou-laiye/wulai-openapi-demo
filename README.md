@@ -3,8 +3,8 @@
 
 
 - 不同语言的验签方法
-- [x] [golang](sign/python/main.go)
-- [x] [python](sign/python/main.py)
-- [x] [java](sign/java)
-- [x] [nodejs](sign/nodejs/main.js)
-- [x] [c#](sign/c#/main.cs)
+- [x] [golang](https://github.com/laiye-tech/wulai-openapi-demo/blob/master/sign/golang/main.go)
+- [x] [python](https://github.com/laiye-tech/wulai-openapi-demo/blob/master/sign/python/main.py)
+- [x] [java](https://github.com/laiye-tech/wulai-openapi-demo/blob/master/sign/java)
+- [x] [nodejs](https://github.com/laiye-tech/wulai-openapi-demo/blob/master/sign/nodejs/main.js)
+- [x] [c#](https://github.com/laiye-tech/wulai-openapi-demo/blob/master/sign/c#/main.cs)
