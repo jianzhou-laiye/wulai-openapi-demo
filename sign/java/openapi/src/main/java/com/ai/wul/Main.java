@@ -88,7 +88,7 @@ public class Main {
         params.put("nickname", "展示的用户名");
         params.put("username", "id_xxxx");
         try {
-            post.setEntity(new StringEntity(gson.toJson(params)));
+            post.setEntity(new ByteArrayEntity(body.getBytes("UTF-8")));
             HttpResponse response = httpClient.execute(post);
             HttpEntity entity = response.getEntity();
             String responseString = EntityUtils.toString(entity, "UTF-8");
