@@ -18,10 +18,10 @@ def get_headers():
     secret = "MY-SECRET"
     pubkey = "MY-KEY"
     #秒级别时间戳
-    # timestamp = str(int(time.time()))
-    # nonce = GetChars(32)
-    nonce = "cfb7BScLHKXZljIqFaJi1zi5xUmkupHr"
-    timestamp = "1524907268"
+    timestamp = str(int(time.time()))
+    nonce = GetChars(32)
+#     nonce = "cfb7BScLHKXZljIqFaJi1zi5xUmkupHr"
+#     timestamp = "1524907268"
     sign = hashlib.sha1(nonce + timestamp + secret).hexdigest()
     data = {
         "pubkey": pubkey,
