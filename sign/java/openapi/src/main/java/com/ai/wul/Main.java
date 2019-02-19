@@ -76,6 +76,41 @@ public class Main {
         return null;
     }
 
+    public static void demoPostSignInBody() {
+        Gson gson = new GsonBuilder().create();
+        Long timeStamp = System.currentTimeMillis() / 1000;
+
+        String url = "http://xxx";
+        HttpPost request = new HttpPost(url);
+        request.addHeader("content-type", "application/json");
+        String sign = DigestUtils.sha1Hex(nonce + timeStamp + secret);
+
+        HttpClient httpClient = HttpClientBuilder.create().build();
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        HashMap<String, Object> msgBody = new HashMap<String, Object>();
+        HashMap<String, String> textMsg = new HashMap<String, String>();
+        params.put("user_id", "188****1234");
+        params.put("session_id", "1234567");
+        params.put("pubkey", pubkey);
+        params.put("sign", sign);
+        params.put("timestamp", String.valueOf(timeStamp));
+        msgBody.put("pre_task_code", "100");
+        textMsg.put("content", "我要给张大脚充值300M流量");
+        msgBody.put("text", textMsg);
+        params.put("msg_body", msgBody);
+        try {
+            String body = gson.toJson(params);
+            request.setEntity(new StringEntity(body, "UTF-8"));
+            HttpResponse response = httpClient.execute(request);
+            HttpEntity entity = response.getEntity();
+            String responseString = EntityUtils.toString(entity, "UTF-8");
+            System.out.println(responseString);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public static void main(String[] args) {
         Gson gson = new GsonBuilder().create();
         Long timeStamp = System.currentTimeMillis() / 1000;
